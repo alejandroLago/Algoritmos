@@ -111,6 +111,39 @@ public class AlgoritmoOrdenacion {
         System.out.println(Arrays.toString(numeros2));
 
     }
+    
+    //codigo dani
+    public void ordenacionShellShort(int[] numeros) {
+	int tamaño = numeros.length / 2;
+	int aux;
+	int pos1;
+	int pos2;
+	for (int j = tamaño; j>=1; j=j/2) {
+	    for (int i = 0; i < numeros.length - j; i++) {
+		System.out.println(Arrays.toString(numeros));
+		if (numeros[i] > numeros[i + j]) {
+		    aux = numeros[i];
+		    numeros[i] = numeros[i + j];
+		    numeros[i + j] = aux;
+		    pos1 = i;
+		    pos2 = i-j;
+		    if(pos2>=j-1&& numeros[pos2] > numeros[pos1]){
+			while(pos2>=j-1){
+			System.out.println(Arrays.toString(numeros));
+			if(numeros[pos2] > numeros[pos1]){
+			    aux = numeros[pos2];
+			    numeros[pos2] = numeros[pos1];
+			    numeros[pos1] = aux;
+			}
+			pos1 = pos2;
+			pos2 -= j;
+		    }
+		    }
+		}
+	    }
+	    System.out.println();
+	}
+    }
 
     /**
      * @param args the command line arguments
